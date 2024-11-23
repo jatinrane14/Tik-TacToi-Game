@@ -29,7 +29,15 @@ const WinPatterns = [
 ]
 let winnerPage = ()=>{
     let hei = document.querySelector(".winner-pop-con");
-    
+    gsap.to(".winner-pop-con",{
+        transform:"translateY(0)",
+        duration:1
+    })
+}
+let DisableAllBtn = ()=>{
+    boxes.forEach((bx)=>{
+        (bx.disabled == true)?"":bx.disabled=true;
+    })
 }
 boxes.forEach((box)=>{
     box.addEventListener('click',()=>{
@@ -38,14 +46,14 @@ boxes.forEach((box)=>{
             box.innerText= "O";
             player1 =false;
             document.getElementsByClassName("p1-flag")[0].style.color = 'red';
-            document.getElementsByClassName("p2-flag")[0].style.color = 'green';
+            document.getElementsByClassName("p2-flag")[0].style.color = '#00ff00';
         }
         else{
             box.innerText= "X";
-            box.innerText.color = "green"
+            box.innerText.color = "#00ff00"
             player1 = true;
             document.getElementsByClassName("p2-flag")[0].style.color = 'red';
-            document.getElementsByClassName("p1-flag")[0].style.color = 'green';
+            document.getElementsByClassName("p1-flag")[0].style.color = '#00ff00';
         }
         box.disabled = true;
         for (let patterns of WinPatterns) {
@@ -57,7 +65,8 @@ boxes.forEach((box)=>{
                     // document.getElementsByClassName("winner-pop-con")[0].classList = 'active';
 
                     // using height 
-                
+                    winnerPage();
+                    DisableAllBtn();
                     if (boxes[patterns[0]].innerText === 'O') {
                         winMsg.innerText = "Player 1 Wins";
                     }
@@ -70,5 +79,9 @@ boxes.forEach((box)=>{
     })
 })
 reset.addEventListener('click',()=>{
+    resetbtn();
+})
+let PA =  document.querySelector(".playAgain");
+PA.addEventListener("click",()=>{
     resetbtn();
 })

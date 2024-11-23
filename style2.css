@@ -62,6 +62,7 @@ main {
     width: 100%;
     text-align: center;
     transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
 .p1-flag.active, .p2-flag.active {
@@ -110,7 +111,7 @@ main {
     gap: 20px;
 }
 
-#reset {
+#reset,#restart {
     background-color: #0f3460;
     color: white;
     border: none;
@@ -120,7 +121,7 @@ main {
     transition: background-color 0.3s ease;
 }
 
-#reset:hover {
+#reset:hover,#restart:hover {
     background-color: #e94560;
 }
 
@@ -134,7 +135,6 @@ main {
     border-radius: 20px 20px 0 0 ;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     background-color: #16213e;
-    border: 2px solid red;
 }
 .winner-pop {
     padding: 30px;
@@ -150,8 +150,8 @@ main {
     font-size: 4rem;
       margin: 0;
       background: linear-gradient(45deg, #ffd700, #ffa500);
-      -webkit-background-clip: text;
       -webkit-text-fill-color: transparent; 
+      background-clip: text;
       animation: glow 2s ease-in-out infinite;
 }
 @keyframes glow {
