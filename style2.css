@@ -12,6 +12,7 @@ body {
     align-items: center;
     min-height: 100vh;
     color: #ffffff;
+    overflow-y: hidden;
 }
 
 main {
@@ -125,41 +126,71 @@ main {
 
 /* Winner Popup Styles */
 .winner-pop-con {
-    height: 0;
-    background-color: green;
     position: absolute;
-    bottom: 0px;
+    /* height: 60%; */
+    transform: translateY(100%);
     width: 100%;
+    bottom: 0px;
     border-radius: 20px 20px 0 0 ;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    background-color: #16213e;
+    border: 2px solid red;
 }
 .winner-pop {
-    background-color: #16213e;
     padding: 30px;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .win-msg {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #e94560;
+    font-size: 4rem;
+      margin: 0;
+      background: linear-gradient(45deg, #ffd700, #ffa500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; 
+      animation: glow 2s ease-in-out infinite;
 }
-
+@keyframes glow {
+    0%, 100% { 
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); 
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+    }
+}
 .winner-pop button {
-    background-color: #e94560;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background: linear-gradient(45deg, #ffd700, #ffa500);
+      border: none;
+      border-radius: 25px;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .winner-pop button:hover {
-    background-color: #0f3460;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
-
+.trophy{
+    width: 120px;
+    height: 120px;
+    font-size: 80px;
+    background: #ffd700;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
 /* Responsive Design */
 @media (max-width: 768px) {
     .game-con {

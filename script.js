@@ -27,6 +27,10 @@ const WinPatterns = [
     [3,4,5],
     [6,7,8]
 ]
+let winnerPage = ()=>{
+    let hei = document.querySelector(".winner-pop-con");
+    
+}
 boxes.forEach((box)=>{
     box.addEventListener('click',()=>{
         console.log("Button was clicked!");
@@ -53,7 +57,7 @@ boxes.forEach((box)=>{
                     // document.getElementsByClassName("winner-pop-con")[0].classList = 'active';
 
                     // using height 
-                    document.getElementsByClassName("winner-pop-con")[0].style = 'height:120px';
+                
                     if (boxes[patterns[0]].innerText === 'O') {
                         winMsg.innerText = "Player 1 Wins";
                     }
