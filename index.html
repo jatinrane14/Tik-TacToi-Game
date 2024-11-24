@@ -7,6 +7,49 @@
     <link rel="stylesheet" href="style2.css" />
   </head>
   <body>
+    <!-- Game Player names -->
+    <div id="Playedtl">
+      <div class="container">
+        <div class="title">Player Details</div>
+        <form class="playerForm">
+          <div class="form-group">
+            <label for="player1">Player 1 Name</label>
+            <input
+              type="text"
+              id="player1"
+              required
+              minlength="2"
+              maxlength="20"
+            />
+            <div class="error" id="player1Error">
+              Name must be 2-20 characters long
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="player2">Player 2 Name</label>
+            <input
+              type="text"
+              id="player2"
+              required
+              minlength="2"
+              maxlength="20"
+            />
+            <div class="error" id="player2Error">
+              Name must be 2-20 characters long
+            </div>
+          </div>
+
+          <button class="startBtn">Start Game</button>
+        </form>
+
+        <div class="players" id="playersDisplay">
+          <h3>Players Ready!</h3>
+          <div class="player-info" id="p1Display"></div>
+          <div class="player-info" id="p2Display"></div>
+        </div>
+      </div>
+    </div>
     <main>
       <div class="game-head">
         <h1>Tik-Tac-Toi</h1>
@@ -48,13 +91,17 @@
       <div class="winner-pop">
         <div class="trophy">
           <p>🏆</p>
-
         </div>
         <p class="win-msg">Winner</p>
         <button class="playAgain">Play Again</button>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>

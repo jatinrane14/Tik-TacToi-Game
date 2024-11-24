@@ -4,19 +4,24 @@ let p1 = document.getElementsByClassName('p1-flag')[0]
 let p2 = document.getElementsByClassName('p2-flag')[0]
 let player1 =  true;
 let winMsg = document.getElementsByClassName("win-msg")[0];
-let  resetbtn = ()=>{
-    boxes.forEach((box)=>{
-        for (let patterns of WinPatterns) {
-            boxes[patterns[0]].innerText = "";
-            boxes[patterns[1]].innerText = "";
-            boxes[patterns[2]].innerText = "";
-        }
-        // document.getElementsByClassName("winner-pop-con").style = 'height:0px';
-        box.disabled = false;   
-        console.log("clicked");
-        window.location.reload();
-    })
+let playerDiv = document.querySelector("Playerdtl");
+let P1Name;
+let P2Name;
+function formUp(){
+    setTimeout(() => {
+        gsap.to("#Playedtl",{
+            transform:"translateY(-100%)"
+        })
+    }, 500);
 }
+let Playerform  = document.querySelector(".playerForm");
+Playerform.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    P1Name = e.target[0].value;
+    P2Name = e.target[1].value;
+    formUp();
+})
+
 const WinPatterns = [
     [0,1,2],
     [0,3,6],
@@ -34,9 +39,29 @@ let winnerPage = ()=>{
         duration:1
     })
 }
+let winnerPageDown = ()=>{
+    let hei = document.querySelector(".winner-pop-con");
+    gsap.to(".winner-pop-con",{
+        transform:"translateY(100%  )",
+        duration:1
+    })
+}
 let DisableAllBtn = ()=>{
     boxes.forEach((bx)=>{
         (bx.disabled == true)?"":bx.disabled=true;
+    })
+}
+let  resetbtn = ()=>{
+    boxes.forEach((box)=>{
+        for (let patterns of WinPatterns) {
+            boxes[patterns[0]].innerText = "";
+            boxes[patterns[1]].innerText = "";
+            boxes[patterns[2]].innerText = "";
+        }
+        // document.getElementsByClassName("winner-pop-con").style = 'height:0px';
+        box.disabled = false;   
+        console.log("clicked");
+        // window.location.reload();
     })
 }
 boxes.forEach((box)=>{
@@ -68,10 +93,10 @@ boxes.forEach((box)=>{
                     winnerPage();
                     DisableAllBtn();
                     if (boxes[patterns[0]].innerText === 'O') {
-                        winMsg.innerText = "Player 1 Wins";
+                        winMsg.innerText = `${P1Name} Wins`;
                     }
                     else{
-                        winMsg.innerText = "Player 2 Wins";
+                        winMsg.innerText = `${P2Name} Wins`;
                     }
                 }
             }  
@@ -83,5 +108,6 @@ reset.addEventListener('click',()=>{
 })
 let PA =  document.querySelector(".playAgain");
 PA.addEventListener("click",()=>{
+    winnerPageDown();
     resetbtn();
 })

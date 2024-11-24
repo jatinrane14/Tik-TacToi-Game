@@ -10,10 +10,121 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh;left: 0;
     color: #ffffff;
     overflow-y: hidden;
 }
+/* Game Player names detail */
+#Playedtl{
+    position: absolute;
+    top: 0; 
+    left: 0;
+    background-color: #0000005f;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    background: #2d2d2d;
+    max-width: 400px;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.title::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    transform: translateX(-50%);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+
+}
+
+.form-group input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #333;
+    background: #252525;
+    padding: 0 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.form-group input:focus {
+    border-color: #00ff88;
+            box-shadow: 0 0 5px rgba(0, 255, 136, 0.2);
+}
+
+.error {
+    color: #ff3860;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.startBtn{
+    height: 45px;
+    width: 100%;
+    background: linear-gradient(135deg, #00ff88, #00b3ff);
+    border: none;
+    color: black    ;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.startBtn:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+.players {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    display: none;
+}
+
+.players h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.player-info {
+    margin: 5px 0;
+    color: #666;
+}
+
 
 main {
     background-color: #16213e;
