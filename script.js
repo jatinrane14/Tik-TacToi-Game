@@ -1,7 +1,7 @@
 let boxes = document.querySelectorAll('.box');
 let reset = document.getElementById("reset");
-let p1 = document.getElementsByClassName('p1-flag')[0]
-let p2 = document.getElementsByClassName('p2-flag')[0]
+let p1 = document.querySelector('.p1-flag');
+let p2 = document.querySelector('.p2-flag');
 let player1 =  true;
 let winMsg = document.getElementsByClassName("win-msg")[0];
 let playerDiv = document.querySelector("Playerdtl");
@@ -19,7 +19,7 @@ Playerform.addEventListener("submit",(e)=>{
     e.preventDefault();
     P1Name = e.target[0].value;
     P2Name = e.target[1].value;
-    formUp();
+    formUp();   
 })
 
 const WinPatterns = [
@@ -60,8 +60,10 @@ let  resetbtn = ()=>{
         }
         // document.getElementsByClassName("winner-pop-con").style = 'height:0px';
         box.disabled = false;   
-        console.log("clicked");
-        // window.location.reload();
+        console.log("Game Reset Successfully!");
+        player1 = true;
+        p1.style.color = "white";
+        p2.style.color = "white";
     })
 }
 boxes.forEach((box)=>{
@@ -88,7 +90,6 @@ boxes.forEach((box)=>{
 
                     // using classlist
                     // document.getElementsByClassName("winner-pop-con")[0].classList = 'active';
-
                     // using height 
                     winnerPage();
                     DisableAllBtn();
